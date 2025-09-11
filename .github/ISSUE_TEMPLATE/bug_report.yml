@@ -6,28 +6,16 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to report a bug! Please fill out the details below.
+        Thanks for taking the time to report a bug! Please provide the details below.
 
-  - type: dropdown
-    id: os
+  - type: textarea
+    id: description
     attributes:
-      label: Operating system
-      description: Choose the OS where the issue occurs.
-      options:
-        - Windows 11
-        - Windows 10
-        - macOS (Apple Silicon)
-        - macOS (Intel)
-        - Linux
+      label: Describe the bug
+      description: What happened?
+      placeholder: Tell us what you saw.
     validations:
       required: true
-
-  - type: input
-    id: os-details
-    attributes:
-      label: OS details (optional)
-      description: Version / build / distro (e.g., macOS 14.5, Ubuntu 22.04).
-      placeholder: e.g., Ubuntu 22.04, kernel 6.8
 
   - type: textarea
     id: steps
@@ -42,32 +30,19 @@ body:
       required: true
 
   - type: textarea
-    id: actual
+    id: expected
     attributes:
-      label: What happened?
-      description: Describe the behavior you observed (include error messages).
-      placeholder: Tell us what you saw.
+      label: Expected behavior
+      description: What did you expect to happen instead?
+      placeholder: Tell us what you expected.
     validations:
       required: true
 
-  - type: textarea
-    id: expected
+  - type: input
+    id: os
     attributes:
-      label: What did you expect to happen?
-      placeholder: Tell us what you expected instead.
-
-  - type: textarea
-    id: logs
-    attributes:
-      label: Relevant logs / output
-      description: Paste any relevant logs (avoid secrets). This will be formatted as code.
-      render: shell
-      placeholder: |
-        [Paste a short excerpt or error stack here]
-
-  - type: textarea
-    id: attachments
-    attributes:
-      label: Screenshots / attachments
-      description: Drag-and-drop screenshots or files that help illustrate the problem.
-      placeholder: Add images or short clips that show the issue.
+      label: Operating system
+      description: Which OS are you using?
+      placeholder: e.g. Windows 11, macOS 14, Ubuntu 22.04
+    validations:
+      required: true
