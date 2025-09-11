@@ -1,64 +1,73 @@
-name: Bug Report
+name: Bug report
 description: File a bug report.
-title: "[Bug]: "
-labels: ["bug", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
-assignees:
-  - octocat
+title: "bug: "
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
-  - type: input
-    id: contact
+        Thanks for taking the time to report a bug! Please fill out the details below.
+
+  - type: dropdown
+    id: os
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      label: Operating system
+      description: Choose the OS where the issue occurs.
+      options:
+        - Windows 11
+        - Windows 10
+        - macOS (Apple Silicon)
+        - macOS (Intel)
+        - Linux
     validations:
-      required: false
+      required: true
+
+  - type: input
+    id: os-details
+    attributes:
+      label: OS details (optional)
+      description: Version / build / distro (e.g., macOS 14.5, Ubuntu 22.04).
+      placeholder: e.g., Ubuntu 22.04, kernel 6.8
+
   - type: textarea
-    id: what-happened
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the minimal steps to trigger the issue.
+      placeholder: |
+        1. …
+        2. …
+        3. …
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
     attributes:
       label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      description: Describe the behavior you observed (include error messages).
+      placeholder: Tell us what you saw.
     validations:
       required: true
-  - type: dropdown
-    id: version
+
+  - type: textarea
+    id: expected
     attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
-      default: 0
-    validations:
-      required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
+      label: What did you expect to happen?
+      placeholder: Tell us what you expected instead.
+
   - type: textarea
     id: logs
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      label: Relevant logs / output
+      description: Paste any relevant logs (avoid secrets). This will be formatted as code.
       render: shell
-  - type: checkboxes
-    id: terms
+      placeholder: |
+        [Paste a short excerpt or error stack here]
+
+  - type: textarea
+    id: attachments
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+      label: Screenshots / attachments
+      description: Drag-and-drop screenshots or files that help illustrate the problem.
+      placeholder: Add images or short clips that show the issue.
