@@ -51,3 +51,4 @@ body:
       label: Attachments
       description: Paste any relevant screenshots, error messages, or logs here.
       placeholder: Drag & drop or paste text/images/logs.
+      
